@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "database": "json-server --watch db.json --port 3001"
+    "database": "json-server --watch db.json --port 3001 --no-cors"
   },
   "eslintConfig": {
     "extends": [
