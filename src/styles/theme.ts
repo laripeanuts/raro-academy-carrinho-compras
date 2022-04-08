@@ -7,7 +7,7 @@ export const theme = {
   },
   font: {
     family: {
-      nunito:
+      roboto:
         "'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     },
     weight: {
