@@ -1,10 +1,20 @@
 import axios from "axios";
 import create from "zustand";
 
+import { CartItemType } from "../types/CartItemType";
 
+type Products = {
+	products: CartItemType[];
+	setProducts: () => void;
+};
 
-
-
+export const useProducts = create<Products>((set) => ({
+	products: [],
+	setProducts: async () => {
+		const response = await axios.get("http://localhost:3001/products");
+		set(() => ({ products: response.data }));
+	},
+}));
 
 
 // type Products = {
