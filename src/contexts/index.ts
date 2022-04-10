@@ -1,7 +1,6 @@
 import axios from "axios";
 import create from "zustand";
-import { CartProps } from "../components/Cart";
-import { ProductProps } from "../components/Product";
+
 
 
 
