@@ -20,7 +20,7 @@ export type MenuPaymentProps = {
  */
 
 const MenuPayment = ({ isOpen, setIsOpen }: MenuPaymentProps) => (
-  <Wrapper isOpen={isOpen}>
+  <Wrapper className="modal" isOpen={isOpen}>
     <Header>
       <Typography level={5} size="large" fontWeight={600}>
         Produtos no carrinho

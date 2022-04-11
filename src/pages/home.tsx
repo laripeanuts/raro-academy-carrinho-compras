@@ -7,8 +7,7 @@ import { Container } from "../components/Container";
 import Cart from "../components/Cart";
 import Header from "../components/Header";
 import LinearProgress from "@mui/material/CircularProgress";
-import Stack from "@mui/material/Stack";
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 //IMPORTE DE TIPOS
 import { CartItemType } from "../types/CartItemType";
 import { useProducts } from "../contexts";
@@ -21,8 +20,7 @@ const Home = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [cartItems, setCartItems] = useState([] as CartItemType[]);
-	// const [products, setProducts] = useState([] as CartItemType[]);
-
+	//FUNÇÕES GLOBAIS
 	const getTotalProducts = () => null;
 	const handleAddCart = () => null;
 	const handleDeleteCart = () => null;

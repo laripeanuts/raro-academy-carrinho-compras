@@ -3,27 +3,26 @@ import styled, { css } from "styled-components";
 import { MenuPaymentProps } from ".";
 
 export const Wrapper = styled.nav<Pick<MenuPaymentProps, "isOpen">>`
-  padding: 6.4rem 6.2rem 4rem 3rem;
-  height: 100%;
+	padding: 3rem;
 
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  border-radius: 20px;
+  z-index: 2;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  
+	background-color: rgba(0, 0, 0, 0.25);
 
-  h4 {
-    margin-bottom: 3.2rem;
-  }
+	h4 {
+		margin-bottom: 3.2rem;
+	}
 
-  ${({ isOpen, theme }) => css`
-    display: ${isOpen ? "block" : "none"};
-    background-color: ${theme.colors.white};
-  `}
+	${({ isOpen, theme }) => css`
+		display: ${isOpen ? "block" : "none"};
+		background-color: ${theme.colors.lightPink};
+	`}
 `;
 
 export const Subtotal = styled.div`
