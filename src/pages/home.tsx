@@ -11,6 +11,7 @@ import { Product } from "../components/Product";
 //IMPORTE DE TIPOS
 import { useProducts } from "../contexts";
 import { useCartProducts } from "../contexts";
+import { CartProduct } from "../components/CartProduct";
 
 const Home = () => {
   //ESTADOS LOCAIS
@@ -30,26 +31,25 @@ const Home = () => {
   return (
     <>
       <Header setIsOpen={setIsOpen} />
-			<Container>
-				<ContainerProducts>
-					{isLoading ? (
-						<div className="loading">
-							<Box sx={{ display: "flex", justifyContent: "center" }}>
-								<LinearProgress disableShrink color="secondary" />
-							</Box>
-						</div>
-					) : (
-						<div>
-							{products?.map((product) => (
-								<Product
-									key={product.id}
-									product={product}
-									cartProducts={cartProducts}
-								/>
-							))}
-						</div>
-					)}
-				</ContainerProducts>
+      <Container>
+        <ContainerProducts>
+          {isLoading ? (
+            <div className="loading">
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <LinearProgress disableShrink color="secondary" />
+              </Box>
+            </div>
+          ) : (
+            <div>
+              {products?.map((product) => (
+                <Product
+                  key={product.id}
+                  product={product}
+                />
+              ))}
+            </div>
+          )}
+        </ContainerProducts>
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       </Container>
     </>

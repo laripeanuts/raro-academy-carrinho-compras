@@ -4,6 +4,7 @@ import media from "styled-media-query";
 export const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  max-width: 450px;
   align-items: center;
   margin-bottom: 3.2rem;
   ${({ theme }) => css`

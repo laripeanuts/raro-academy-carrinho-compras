@@ -1,22 +1,36 @@
-import Button from "@mui/material/Button";
-import ShoppingCartCheckout from "@mui/icons-material/ShoppingCartCheckout";
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
 import { CartProductType } from "../../types/CartProductType";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
 import { useCartProducts } from "../../contexts";
+import { useEffect } from "react";
 
 export type ProductProps = {
 	product: CartProductType;
-	cartProducts: CartProductType[];
 };
 
 export const Product = ({
 	product,
 }: ProductProps) => {
 	const { cartProducts, handleAddCart, handleDeleteCart } = useCartProducts();
-	const cartAmount = cartProducts[product.id]?.amount;
-	return (
+  
+  const getAmountProduct = (cartProducts: CartProductType[]) => {
+    let amount = 0;
+    cartProducts.forEach((item) => {
+      if (item.id === product.id) {
+        amount = item.amount;
+      }
+    });
+    return amount;
+  };
+  
+  const amountProduct = getAmountProduct(cartProducts)
+  
+  const alertPop = (message: string) => alert(message)
+  
+  useEffect(() => {}, [cartProducts]);
+  
+  return (
     <Wrapper>
       <img src={product.picture} alt={`Imagem de referência ${product.name}`} />
 
@@ -27,7 +41,16 @@ export const Product = ({
         </Column>
 
         <WrapperIncrementor>
-          {cartAmount > 0 ? (
+          <Incrementor
+            onClickPlus={
+              amountProduct <= product.quantity
+                ? () => handleAddCart(product)
+                : () => alertPop("Infelizmente atingiu o limite de estoque")
+            }
+            onClickMinus={() => handleDeleteCart(product)}
+            amount={amountProduct}
+          />
+          {/* {cartAmount > 0 ? (
             <Incrementor
               onClickPlus={() => handleAddCart(product)}
               onClickMinus={() => handleDeleteCart(product)}
@@ -43,8 +66,7 @@ export const Product = ({
             >
               COMPRAR
             </Button>
-          )}
-          ;
+          )} */}
         </WrapperIncrementor>
       </Info>
     </Wrapper>
