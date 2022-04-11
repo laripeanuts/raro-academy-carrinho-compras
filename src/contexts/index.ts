@@ -23,6 +23,7 @@ type CartProducts = {
   setCartProducts: (product: CartProductType) => void;
   handleAddCart: (productAtual: CartProductType) => void;
   handleDeleteCart: (productAtual: CartProductType) => void;
+  emptyCard: () => void;
 };
 
 export const useCartProducts = create<CartProducts>((set) => ({
@@ -46,7 +47,7 @@ export const useCartProducts = create<CartProducts>((set) => ({
 
       if (isProductInCart) {
         //Se estiver, soma a quantidade
-				return {
+        return {
           cartProducts: cartProducts.map((product) =>
             product.id === productAtual.id
               ? { ...product, amount: product.amount + 1 }
@@ -75,6 +76,15 @@ export const useCartProducts = create<CartProducts>((set) => ({
           return [...acc, product];
         }
       }, [] as CartProductType[]);
+    });
+  },
+
+  emptyCard: () => {
+    set(({ cartProducts }) => {
+      console.log(cartProducts);
+      return {
+        cartProducts: [],
+      };
     });
   },
 }));

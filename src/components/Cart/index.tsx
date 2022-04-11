@@ -22,7 +22,7 @@ export type CartProps = {
  */
 
 export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
-	const { cartProducts } = useCartProducts();
+	const { cartProducts, emptyCard } = useCartProducts();
 	
   const calculateProducts = (items: CartProductType[]) => {
     return items.reduce(
@@ -31,35 +31,40 @@ export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
     );
   };
 
-  return (
-		<Wrapper className="modal" isOpen={isOpen}>
-			<Header>
-				<CartHeader>
-					<Typography level={5} size="large" fontWeight={600}>
-						Produtos no carrinho
-					</Typography>
-					<CloseOutline onClick={() => setIsOpen(false)} />
-				</CartHeader>
-			</Header>
-			<CartContainer>
-				{cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
-				{cartProducts?.map((product) => (
-					<CartProduct
-						key={product.id}
-						product={product}
-					/>
-				))}
-			</CartContainer>
-			<Subtotal>
-				<Typography level={5} size="large" fontWeight={600}>
-					Total
-				</Typography>
-				<Typography>
-					{formatPriceReal(calculateProducts(cartProducts))}
-				</Typography>
-			</Subtotal>
+	const finished = () => {
+		emptyCard();
+		setIsOpen(false);
+		alert("Compra finalizada com sucesso!");
+	}
 
-			<Button fullWidth>Finalizar compra</Button>
-		</Wrapper>
-	);
+  return (
+    <Wrapper className="modal" isOpen={isOpen}>
+      <Header>
+        <CartHeader>
+          <Typography level={5} size="large" fontWeight={600}>
+            Produtos no carrinho
+          </Typography>
+          <CloseOutline onClick={() => setIsOpen(false)} />
+        </CartHeader>
+      </Header>
+      <CartContainer>
+        {cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
+        {cartProducts?.map((product) => (
+          <CartProduct key={product.id} product={product} />
+        ))}
+      </CartContainer>
+      <Subtotal>
+        <Typography level={5} size="large" fontWeight={600}>
+          Total
+        </Typography>
+        <Typography>
+          {formatPriceReal(calculateProducts(cartProducts))}
+        </Typography>
+      </Subtotal>
+
+      <Button onClick={finished} fullWidth>
+        Finalizar compra
+      </Button>
+    </Wrapper>
+  );
 };
