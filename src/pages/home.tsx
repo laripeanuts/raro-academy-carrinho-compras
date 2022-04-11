@@ -44,8 +44,23 @@ const Home = () => {
 			return [...prev, { ...productAtual, amount: 1 }];
 		});
 	};	
-	
-	const handleDeleteCart = () => null;
+
+	const handleDeleteCart = (id: number) => {
+			setCartProducts((prev) =>
+				prev.reduce((acc, product) => {
+					//Checar se estamos no item que estamos interagindo
+					if (product.id === id) {
+						//Se a quantidade for igual aigual a 1, remove o item
+						if (product.amount === 1) return acc;
+						//Se for maior que 1, diminui a quantidade
+						return [...acc, { ...product, amount: product.amount - 1 }];
+						//Se não, retorna o item
+					} else {
+						return [...acc, product];
+					}
+				}, [] as CartProductType[]),
+			);
+		};
 
 	useEffect(() => {
 		setProducts();
