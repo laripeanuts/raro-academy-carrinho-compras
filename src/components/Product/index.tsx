@@ -7,15 +7,18 @@ import { formatPriceReal } from "../../helpers/formatPriceReal";
 
 export type ProductProps = {
 	product: CartProductType;
+	cartProducts: CartProductType[];
 	addToCart: (product: CartProductType) => void;
 	removeFromCart: (id: number) => void;
 };
 
 export const Product = ({
 	product,
+	cartProducts,
 	addToCart,
 	removeFromCart,
 }: ProductProps) => {
+	const cartAmount = cartProducts[product.id]?.amount;
 	return (
 		<Wrapper>
 			<img src={product.picture} alt={`Imagem de referência ${product.name}`} />
@@ -27,20 +30,24 @@ export const Product = ({
 				</Column>
 
 				<WrapperIncrementor>
-					<Incrementor
-						onClickPlus={() => addToCart(product)}
-						onClickMinus={() => removeFromCart(product.id)}
-						amount={product.amount}
-					/>
-					<Button
-						disableElevation
-						onClick={() => addToCart(product)}
-						variant="contained"
-						color="secondary"
-						endIcon={<ShoppingCartCheckout />}
-					>
-						COMPRAR
-					</Button>
+					{cartAmount > 0 ? (
+						<Incrementor
+							onClickPlus={() => addToCart(product)}
+							onClickMinus={() => removeFromCart(product.id)}
+							amount={cartAmount}
+						/>
+					) : (
+						<Button
+							disableElevation
+							onClick={() => addToCart(product)}
+							variant="contained"
+							color="secondary"
+							endIcon={<ShoppingCartCheckout />}
+						>
+							COMPRAR
+						</Button>
+					)}
+					;{console.log("amount ========" + cartAmount)}
 				</WrapperIncrementor>
 			</Info>
 		</Wrapper>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Container } from "../components/Container";
 //IMPORTE DE COMPONENTES
 import { Cart } from "../components/Cart";
+import { Products } from "../components/Products";
 import Header from "../components/Header";
 import LinearProgress from "@mui/material/CircularProgress";
 import { Box } from "@mui/material";
@@ -80,16 +81,11 @@ const Home = () => {
 					</div>
 				) : (
 					<div>
-						{products.map((product: CartProductType) => {
-							return (
-								<Product
-									key={product.id}
-									product={product}
-									addToCart={handleAddCart}
-									removeFromCart={handleDeleteCart}
-								/>
-							);
-						})}
+						<Products
+							cartProducts={cartProducts}
+							addToCart={handleAddCart}
+							removeFromCart={handleDeleteCart}
+						/>
 					</div>
 				)}
 				<Cart

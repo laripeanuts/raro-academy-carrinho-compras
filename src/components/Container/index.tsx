@@ -3,6 +3,7 @@ import media from "styled-media-query";
 
 export const Container = styled.main`
   padding: 2.4rem 1.5rem 3.2rem;
+  padding-top: 70px;
   ${media.greaterThan("medium")`
     padding: 7rem 6rem;
   `}
