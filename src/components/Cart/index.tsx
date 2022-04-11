@@ -6,13 +6,11 @@ import { Wrapper, Subtotal, Header, CartContainer, CartHeader } from "./styles";
 import { CartProductType } from "../../types/CartProductType";
 import { CartProduct } from "../CartProduct";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
+import { useCartProducts } from "../../contexts";
 
 export type CartProps = {
 	isOpen: boolean;
 	setIsOpen: Dispatch<SetStateAction<boolean>>;
-	cartProducts: CartProductType[];
-	addToCart: (product: CartProductType) => void;
-	removeFromCart: (product: CartProductType) => void;
 };
 
 /**
@@ -23,7 +21,9 @@ export type CartProps = {
  * - Incrementador
  */
 
-export const Cart = ({ isOpen, setIsOpen, cartProducts, addToCart, removeFromCart }: CartProps) => {
+export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
+	const { cartProducts } = useCartProducts();
+	
   const calculateProducts = (items: CartProductType[]) => {
     return items.reduce(
       (acc: number, item) => acc + item.amount * item.price,
@@ -47,8 +47,6 @@ export const Cart = ({ isOpen, setIsOpen, cartProducts, addToCart, removeFromCar
 					<CartProduct
 						key={product.id}
 						product={product}
-						addToCart={addToCart}
-						removeFromCart={removeFromCart}
 					/>
 				))}
 			</CartContainer>

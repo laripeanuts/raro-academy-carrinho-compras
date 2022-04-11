@@ -10,21 +10,21 @@ type IncrementorProps = {
 }; 
 
 const Incrementor = ({
-	amount,
-	onClickPlus,
-	onClickMinus,
+  amount,
+  onClickMinus,
+  onClickPlus,
 }: IncrementorProps) => (
-	<Wrapper>
-		<IconWrapper>
-			<SubtractIcon onClick={onClickMinus} aria-label="Subtract item" />
-		</IconWrapper>
+  <Wrapper>
+    <IconWrapper>
+      <SubtractIcon onClick={onClickMinus} aria-label="Subtract item" />
+    </IconWrapper>
 
-		<Quantity>{amount}</Quantity>
+    <Quantity>{amount}</Quantity>
 
-		<IconWrapper>
+    <IconWrapper>
       <PlusIcon onClick={onClickPlus} aria-label="Add item" />
-		</IconWrapper>
-	</Wrapper>
+    </IconWrapper>
+  </Wrapper>
 );
 
 export default Incrementor;
