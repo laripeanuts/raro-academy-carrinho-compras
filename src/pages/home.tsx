@@ -25,7 +25,26 @@ const Home = () => {
 		return product.reduce((prev: number, product) => prev + product.amount, 0);
 	};
 	
-	const handleAddCart = () => null;
+	const handleAddCart = (productAtual: CartProductType) => {
+		setCartProducts((prev) => {
+			//Checando se o produto está no carrinho
+			const isProductInCart = prev.find(
+				(product) => product.id === productAtual.id,
+			);
+
+			if (isProductInCart) {
+				//Se estiver, soma a quantidade
+				return prev.map((product) =>
+					product.id === productAtual.id
+						? { ...product, amount: product.amount + 1 }
+						: product,
+				);
+			}
+			//Se não estiver, adiciona o item
+			return [...prev, { ...productAtual, amount: 1 }];
+		});
+	};	
+	
 	const handleDeleteCart = () => null;
 
 	useEffect(() => {
