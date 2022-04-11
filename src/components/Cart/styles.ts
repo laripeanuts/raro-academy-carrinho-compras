@@ -32,17 +32,20 @@ export const Subtotal = styled.div`
   justify-content: space-between;
   margin-bottom: 10px;
 `;
+
 export const CartContainer = styled.div`
   display: flex;
+	flex-direction: column;
   justify-content: center;
+	min-width: 500px;
   align-items: center;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.black};
 `
 export const CartHeader = styled.div`
 	display: flex;
+	width: 100%;
 	justify-content: space-between;
-	gap: 10px;
 
 	> svg {
     border-radius: 50%;
