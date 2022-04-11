@@ -20,6 +20,10 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+  html, body, #root {
+    min-height: 100% !important;
+    height: 100%;
+}
 `;
 
 export default GlobalStyles;

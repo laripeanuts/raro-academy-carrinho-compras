@@ -4,16 +4,25 @@ import { theme } from "../../styles/theme";
 import { CartProps } from "../Cart";
 
 export const Wrapper = styled.nav<Pick<CartProps, "isOpen">>`
+	/* position: absolute;
 	padding: 3rem;
 
-	position: absolute;
-	top: 50%;
+	top: 80%;
 	left: 50%;
-	transform: translate(-50%, -50%);
-  border-radius: 20px;
-  z-index: 2;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
-  
+	transform: translate(-50%, -50%); */
+	padding: 3rem;
+	border-radius: 0 0 30px 30px;
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	min-width: 350px;
+	align-items: center;
+
+	z-index: 2;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+
 	background-color: rgba(0, 0, 0, 0.25);
 
 	h4 {
