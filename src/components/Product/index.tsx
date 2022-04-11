@@ -9,7 +9,7 @@ export type ProductProps = {
 	product: CartProductType;
 	cartProducts: CartProductType[];
 	addToCart: (product: CartProductType) => void;
-	removeFromCart: (id: number) => void;
+	removeFromCart: (product: CartProductType) => void;
 };
 
 export const Product = ({
@@ -33,7 +33,7 @@ export const Product = ({
 					{cartAmount > 0 ? (
 						<Incrementor
 							onClickPlus={() => addToCart(product)}
-							onClickMinus={() => removeFromCart(product.id)}
+							onClickMinus={() => removeFromCart(product)}
 							amount={cartAmount}
 						/>
 					) : (

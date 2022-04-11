@@ -6,4 +6,3 @@ export type CartProductType = {
 	price: number;
 	amount: number;
 };
-

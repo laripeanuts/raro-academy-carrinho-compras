@@ -6,7 +6,7 @@ import { formatPriceReal } from "../../helpers/formatPriceReal";
 type CartProductProps = {
 	product: CartProductType;
 	addToCart: (product: CartProductType) => void;
-	removeFromCart: (id: number) => void;
+	removeFromCart: (product: CartProductType) => void;
 };
 
 export const CartProduct = ({
@@ -26,7 +26,7 @@ export const CartProduct = ({
 			<WrapperIncrementor>
 				<Incrementor
 					onClickPlus={() => addToCart(product)}
-					onClickMinus={() => removeFromCart(product.id)}
+					onClickMinus={() => removeFromCart(product)}
 					amount={product.amount}
 				/>
 			</WrapperIncrementor>

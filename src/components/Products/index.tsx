@@ -6,7 +6,7 @@ import Product from "../../components/Product";
 export type ProductsProps = {
 	cartProducts: CartProductType[];
 	addToCart: (product: CartProductType) => void;
-	removeFromCart: (id: number) => void;
+	removeFromCart: (product: CartProductType) => void;
 };
 
 export const Products = ({

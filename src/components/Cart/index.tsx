@@ -8,11 +8,11 @@ import { CartProduct } from "../CartProduct";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
 
 export type CartProps = {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
-  cartProducts: CartProductType[];
-  addToCart: (product: CartProductType) => void;
-  removeFromCart: (id: number) => void | null | undefined;
+	isOpen: boolean;
+	setIsOpen: Dispatch<SetStateAction<boolean>>;
+	cartProducts: CartProductType[];
+	addToCart: (product: CartProductType) => void;
+	removeFromCart: (product: CartProductType) => void;
 };
 
 /**
