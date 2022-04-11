@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./theme";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -13,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   html {
+    background: ${theme.colors.lightGray};
     font-size: 62.5%;
   }
   body {

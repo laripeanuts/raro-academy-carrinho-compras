@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.lightPink};
     border-radius: ${theme.border.radius.other};
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
     img {
       width: 12.5rem;
@@ -76,6 +77,7 @@ export const WrapperIncrementor = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    gap: 10px;
     margin-top: 1.4rem;
   `}
 `;
