@@ -2,8 +2,12 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 export const Wrapper = styled.div`
+padding: 15px;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 3.2rem;
   ${({ theme }) => css`
@@ -55,13 +59,13 @@ export const Text = styled.p`
     color: ${theme.colors.black};
     font-weight: ${theme.font.weight.light};
     margin-top: 0.4rem;
-
+    
     ${media.lessThan("medium")`
-      font-size: ${theme.font.sizes.xsmall};
-      margin-top: 0;
+    font-size: ${theme.font.sizes.xsmall};
+    margin-top: 0;
     `}
-  `}
-
+    `}
+    
   svg {
     width: 1.6rem;
     height: 1.6rem;
@@ -73,8 +77,13 @@ export const Text = styled.p`
 `;
 
 export const WrapperIncrementor = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
   ${media.lessThan("medium")`
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
     width: 100%;
     gap: 10px;
