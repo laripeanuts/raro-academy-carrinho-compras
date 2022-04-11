@@ -20,91 +20,68 @@ export const useProducts = create<Products>((set) => ({
 //ESTADO DOS PRODUTOS NO CARRINHO
 type CartProducts = {
 	cartProducts: CartProductType[];
-	setCartProducts: (cartProducts: CartProductType[]) => void;
+	setCartProducts: (product: CartProductType) => void;
 };
 
 export const useCartProducts = create<CartProducts>((set) => ({
-	cartProducts: [] as CartProductType[],
-	setCartProducts(cartProducts: CartProductType[]): void {
-		set(() => ({ cartProducts }));
-	},
+	cartProducts: [],
+	setCartProducts: (product: CartProductType) => {
+		set(({ cartProducts }) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			console.log(cartProducts);
+			return ({
+				cartProducts: [...cartProducts, product],
+			})
+		});
+	}
 }));
 
+	// const handleAddCart = (productAtual: CartProductType) => {
+	// 	setCartProducts((prev) => {
+	// 		//Checando se o produto está no carrinho
+	// 		const isProductInCart = prev.find(
+	// 			(product) => product.id === productAtual.id,
+	// 		);
 
-// type Products = {
-//   products: ProductProps[],
-//   setProducts: () => void
-// };
+	// 		if (isProductInCart) {
+	// 			//Se estiver, soma a quantidade
+	// 			return prev.map((product) =>
+	// 				product.id === productAtual.id
+	// 					? { ...product, amount: product.amount + 1 }
+	// 					: product,
+	// 			);
+	// 		}
+	// 		//Se não estiver, adiciona o item
+	// 		return [...prev, { ...productAtual, amount: 1 }];
+	// 	});
+	// };
 
-// export const useProducts = create<Products>(set => ({
-//   products: [],
-//   setProducts: async () => {
-//     const response = await axios.get("http://localhost:3001/products")
-//     set(() => ({ products: response.data }))
-// 	}
-// }));
-
-// type Cart = {
-// 	cart: CartProps[];
-// 	setCart: ({
-// 		id,
-// 		name,
-// 		price,
-// 		picture,
-// 		quantity,
-// 		quantityCart,
-// 		priceItem,
-// 	}: CartProps) => void;
-// };
-
-// export const useCart = create<Cart>((set) => ({
-// 	cart: [],
-// 	setCart: ({id, name, price, picture, quantity, quantityCart, priceItem}: CartProps) => {
-// 		set(({ cart }) => {
-// 			let validate = true;
-// 			cart.forEach((products) => {
-// 				if (products.id === id) validate = false;
-// 			});
-// 			if (validate) {
-// 				return {
-// 					cart: [...cart, { cart }],
-// 				};
-// 			}
-// 			return { cart };
-// 		});
-// 	},
-// }));
-
-// type QuantityCart = {
-// 	quantityCart: number;
-// 	setQuantityCartPlus: (id: number) => void;
-// 	setQuantityCartMinus: () => void;
-// };
-
-// export const useQuantityCart = create<QuantityCart>((set) => ({
-// 	quantityCart: 0,
-// 	setQuantityCartPlus: (id) => {
-// 		set(({ quantityCart }) => ({
-// 			quantityCart: quantityCart + 1,
-// 		}));
-// 	},
-// 	setQuantityCartMinus: () => {
-// 		set(({ quantityCart }) => ({
-// 			quantityCart: quantityCart - 1,
-// 		}));
-// 	}
-// }));
-
-// type ProductCount = {
-// 	productCount: number[];
-// 	setProductCount: (id: number) => void;
-// };
-
-// export const useProductCount = create<ProductCount>((set) => ({
-// 	productCount: [],
-// 	setProductCount: (id) => {
-// 		set(({ productCount }) => ({
-// 			productCount: [...productCount, id],
-// 		}));
-// 	},
-// }));
+	// const handleDeleteCart = (id: number) => {
+	// 	setCartProducts((prev) =>
+	// 		prev.reduce((acc, product) => {
+	// 			//Checar se estamos no item que estamos interagindo
+	// 			if (product.id === id) {
+	// 				//Se a quantidade for igual a igual a 1, remove o item
+	// 				if (product.amount === 1) return acc;
+	// 				//Se for maior que 1, diminui a quantidade
+	// 				return [...acc, { ...product, amount: product.amount - 1 }];
+	// 				//Se não, retorna o item
+	// 			} else {
+	// 				return [...acc, product];
+	// 			}
+	// 		}, [] as CartProductType[]),
+	// 	);
+	// };

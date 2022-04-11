@@ -47,7 +47,7 @@ export const Product = ({
 							COMPRAR
 						</Button>
 					)}
-					;{console.log("amount ========" + cartAmount)}
+					;
 				</WrapperIncrementor>
 			</Info>
 		</Wrapper>

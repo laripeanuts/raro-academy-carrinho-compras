@@ -12,7 +12,7 @@ export type CartProps = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   cartProducts: CartProductType[];
   addToCart: (product: CartProductType) => void;
-  removeFromCart: (id: number) => void;
+  removeFromCart: (id: number) => void | null | undefined;
 };
 
 /**
