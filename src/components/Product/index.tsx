@@ -2,39 +2,48 @@ import Button from "@mui/material/Button";
 import ShoppingCartCheckout from "@mui/icons-material/ShoppingCartCheckout";
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
+import { CartProductType } from "../../types/CartProductType";
+import { formatPriceReal } from "../../helpers/formatPriceReal";
 
 export type ProductProps = {
-  id: number;
-  name: string;
-  price: number;
-  picture: string;
+	product: CartProductType;
+	addToCart: (product: CartProductType) => void;
+	removeFromCart: (id: number) => void;
 };
 
-const Product = ({ id, name, price, picture }: ProductProps) => (
-	<Wrapper>
-		<img src={picture} alt={`Imagem de referência ${name}`} />
+export const Product = ({
+	product,
+	addToCart,
+	removeFromCart,
+}: ProductProps) => {
+	return (
+		<Wrapper>
+			<img src={product.picture} alt={`Imagem de referência ${product.name}`} />
 
-		<Info>
-			<Column>
-				<Text>{name}</Text>
-				<Text>{price}</Text>
-			</Column>
+			<Info>
+				<Column>
+					<Text>{product.name}</Text>
+					<Text>{formatPriceReal(product.price)}</Text>
+				</Column>
 
-			<WrapperIncrementor>
-        {/* <Incrementor id={id} quantity={1} /> */}
-				<Button
-					disableElevation
-					onClick={() => {}}
-					variant="contained"
-					color="secondary"
-					endIcon={<ShoppingCartCheckout />}
-				>
-					COMPRAR
-        </Button>
-
-			</WrapperIncrementor>
-		</Info>
-	</Wrapper>
-);
-
+				<WrapperIncrementor>
+					<Incrementor
+						onClickPlus={() => addToCart(product)}
+						onClickMinus={() => removeFromCart(product.id)}
+						amount={product.amount}
+					/>
+					<Button
+						disableElevation
+						onClick={() => {}}
+						variant="contained"
+						color="secondary"
+						endIcon={<ShoppingCartCheckout />}
+					>
+						COMPRAR
+					</Button>
+				</WrapperIncrementor>
+			</Info>
+		</Wrapper>
+	);
+};
 export default Product;

@@ -2,9 +2,10 @@ import { Dispatch, SetStateAction } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline";
 import Button from "../Button";
 import Typography from "../Typography";
-import { Wrapper, Subtotal, Header } from "./styles";
+import { Wrapper, Subtotal, Header, CartContainer, CartHeader } from "./styles";
 import { CartProductType } from "../../types/CartProductType";
 import { CartProduct } from "../CartProduct";
+import { formatPriceReal } from "../../helpers/formatPriceReal";
 
 export type CartProps = {
   isOpen: boolean;
@@ -33,13 +34,15 @@ export const Cart = ({ isOpen, setIsOpen, cartProducts, addToCart, removeFromCar
   return (
 		<Wrapper className="modal" isOpen={isOpen}>
 			<Header>
-				<Typography level={5} size="large" fontWeight={600}>
-					Produtos no carrinho
-				</Typography>
-				<CloseOutline onClick={() => setIsOpen(false)} />
+				<CartHeader>
+					<Typography level={5} size="large" fontWeight={600}>
+						Produtos no carrinho
+					</Typography>
+					<CloseOutline onClick={() => setIsOpen(false)} />
+				</CartHeader>
 			</Header>
-			<div className="cart-products">
-				{cartProducts.length === 0 ? <p>No items</p> : null}
+			<CartContainer>
+				{cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
 				{cartProducts?.map((product) => (
 					<CartProduct
 						key={product.id}
@@ -48,12 +51,14 @@ export const Cart = ({ isOpen, setIsOpen, cartProducts, addToCart, removeFromCar
 						removeFromCart={removeFromCart}
 					/>
 				))}
-			</div>
+			</CartContainer>
 			<Subtotal>
 				<Typography level={5} size="large" fontWeight={600}>
 					Total
 				</Typography>
-				<Typography>Total: {calculateProducts(cartProducts)}</Typography>
+				<Typography>
+					{formatPriceReal(calculateProducts(cartProducts))}
+				</Typography>
 			</Subtotal>
 
 			<Button fullWidth>Finalizar compra</Button>

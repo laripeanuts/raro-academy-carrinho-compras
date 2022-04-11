@@ -1,5 +1,3 @@
-import Button from "@mui/material/Button";
-import ShoppingCartCheckout from "@mui/icons-material/ShoppingCartCheckout";
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
 import { CartProductType } from "../../types/CartProductType";

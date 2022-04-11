@@ -42,8 +42,13 @@ const Home = () => {
 				) : (
 					<div>
 						{products.map((product: CartProductType) => {
-							return <Product key={product.id} {...product} />;
-						})}
+							return (
+								<Product key={product.id}
+									product={product}
+									addToCart={handleAddCart}
+									removeFromCart={handleDeleteCart}
+								/>
+						)})}
 					</div>
 				)}
 				<Cart
