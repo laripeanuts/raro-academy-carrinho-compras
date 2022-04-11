@@ -44,7 +44,7 @@
 		},
 		{
 			"id": 6,
-			"name": "Apple MacBook Air 13,3” (M1 de Apple com 8 CPU e 7 GPU, 8 GB RAM, 512 GB SSD) - Prata",
+			"name": "Apple MacBook Air 13,3",
 			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v8660817288287946624/products/216679.00-macbook-air-2020-mgna3bz-a.jpg&height=500&width=500&quality=0.9",
 			"quantity": 7,
 			"price": 2999.9
@@ -58,7 +58,7 @@
 		},
 		{
 			"id": 8,
-			"name": "Carregador de Parede Apple com 1 Saída USB-C, 20W, Branco ",
+			"name": "Carregador de Parede Apple 20W",
 			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v3006484973456491110/products/216338.02-carregador-parede-apple-mhjg3bz-a.jpg",
 			"quantity": 5,
 			"price": 224.5
