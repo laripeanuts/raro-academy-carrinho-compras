@@ -3,13 +3,13 @@
 
 ### Na home:
 - [X] Integrar a listagem de produtos com o JSON-API
-- [ ] Criar a funcionalidade de incrementar e decrementar no button
-- [ ] Vocês devem mostrar o preço formatado, exemplo: 'R$ 20,50' ou '1.050,70'
+- [X]] Criar a funcionalidade de incrementar e decrementar no button
+- [X] Vocês devem mostrar o preço formatado, exemplo: 'R$ 20,50' ou '1.050,70'
 
 ### No carrinho:
-- [ ] Listar os produtos no carrinho
-- [ ] Conseguir alterar (incrementar ou decrementar) a quantidade no carrinho
-- [ ] Exibir o total formatado
+- [X] Listar os produtos no carrinho
+- [X] Conseguir alterar (incrementar ou decrementar) a quantidade no carrinho
+- [X] Exibir o total formatado
 - [ ] Um estado compartilhado para gerenciar toda a lógica do carrinho e refletir informações que precisar
 
 
