@@ -1,6 +1,7 @@
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
 import { CartProductType } from "../../types/CartProductType";
+import { formatPriceReal } from "../../helpers/formatPriceReal";
 
 type CartProductProps = {
 	product: CartProductType;
@@ -19,7 +20,7 @@ export const CartProduct = ({
 		<Info>
 			<Column>
 				<Text>{product.name}</Text>
-				<Text>{product.price}</Text>
+				<Text>{formatPriceReal(product.price)}</Text>
 			</Column>
 
 			<WrapperIncrementor>
