@@ -2,19 +2,19 @@ import Button from "@mui/material/Button";
 import ShoppingCartCheckout from "@mui/icons-material/ShoppingCartCheckout";
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
-import { CartItemType } from "../../types/cart";
+import { CartProductType } from "../../types/CartProductType";
 
-type CartItemProps = {
-	product: CartItemType;
-	addToCart: (product: CartItemType) => void;
+type CartProductProps = {
+	product: CartProductType;
+	addToCart: (product: CartProductType) => void;
 	removeFromCart: (id: number) => void;
 };
 
-export const CartItem = ({
+export const CartProduct = ({
 	product,
 	addToCart,
 	removeFromCart,
-}: CartItemProps) => (
+}: CartProductProps) => (
 	<Wrapper>
 		<img src={product.picture} alt={`Imagem de referência ${product.name}`} />
 
@@ -28,20 +28,9 @@ export const CartItem = ({
 				<Incrementor
 					onClickPlus={() => addToCart(product)}
 					onClickMinus={() => removeFromCart(product.id)}
-					quantity={product.amount}
+					amount={product.amount}
 				/>
-				<Button
-					disableElevation
-					onClick={() => addToCart(product)}
-					variant="contained"
-					color="secondary"
-					endIcon={<ShoppingCartCheckout />}
-				>
-					COMPRAR
-				</Button>
 			</WrapperIncrementor>
 		</Info>
 	</Wrapper>
 );
-
-export default Product;

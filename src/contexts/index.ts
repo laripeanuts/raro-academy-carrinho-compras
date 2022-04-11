@@ -1,10 +1,10 @@
 import axios from "axios";
 import create from "zustand";
 
-import { CartItemType } from "../types/CartItemType";
+import { CartProductType } from "../types/CartProductType";
 
 type Products = {
-	products: CartItemType[];
+	products: CartProductType[];
 	setProducts: () => void;
 };
 

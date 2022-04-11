@@ -21,7 +21,7 @@ const Product = ({ id, name, price, picture }: ProductProps) => (
 			</Column>
 
 			<WrapperIncrementor>
-        <Incrementor id={id} quantity={1} />
+        {/* <Incrementor id={id} quantity={1} /> */}
 				<Button
 					disableElevation
 					onClick={() => {}}

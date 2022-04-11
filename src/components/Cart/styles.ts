@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-import { MenuPaymentProps } from ".";
+import { CartProps } from "../Cart";
 
-export const Wrapper = styled.nav<Pick<MenuPaymentProps, "isOpen">>`
+export const Wrapper = styled.nav<Pick<CartProps, "isOpen">>`
 	padding: 3rem;
 
 	position: absolute;

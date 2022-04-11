@@ -1,15 +1,14 @@
 //IMPORTE DE UTILIDADES
 import { useEffect, useState } from "react";
-import axios from "axios";
 //IMPORTE DE ESTILOS
 import { Container } from "../components/Container";
 //IMPORTE DE COMPONENTES
-import Cart from "../components/Cart";
+import { Cart } from "../components/Cart";
 import Header from "../components/Header";
 import LinearProgress from "@mui/material/CircularProgress";
 import { Box } from "@mui/material";
 //IMPORTE DE TIPOS
-import { CartItemType } from "../types/CartItemType";
+import { CartProductType } from "../types/CartProductType";
 import { useProducts } from "../contexts";
 import Product from "../components/Product";
 
@@ -19,7 +18,7 @@ const Home = () => {
 	//ESTADOS LOCAIS
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
-	const [cartItems, setCartItems] = useState([] as CartItemType[]);
+	const [cartProducts, setCartProducts] = useState([] as CartProductType[]);
 	//FUNÇÕES GLOBAIS
 	const getTotalProducts = () => null;
 	const handleAddCart = () => null;
@@ -42,12 +41,18 @@ const Home = () => {
 					</div>
 				) : (
 					<div>
-						{products.map((item: CartItemType) => {
-							return <Product key={item.id} {...item} />;
+						{products.map((product: CartProductType) => {
+							return <Product key={product.id} {...product} />;
 						})}
 					</div>
 				)}
-				<Cart isOpen={isOpen} setIsOpen={setIsOpen} />
+				<Cart
+					isOpen={isOpen}
+					setIsOpen={setIsOpen}
+					cartProducts={cartProducts}
+					addToCart={handleAddCart}
+					removeFromCart={handleDeleteCart}
+				/>
 			</Container>
 		</>
 	);
