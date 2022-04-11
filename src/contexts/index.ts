@@ -3,6 +3,7 @@ import create from "zustand";
 
 import { CartProductType } from "../types/CartProductType";
 
+//ESTADO DOS PRODUTOS RECEBIDOS
 type Products = {
 	products: CartProductType[];
 	setProducts: () => void;
@@ -13,6 +14,19 @@ export const useProducts = create<Products>((set) => ({
 	setProducts: async () => {
 		const response = await axios.get("http://localhost:3001/products");
 		set(() => ({ products: response.data }));
+	},
+}));
+
+//ESTADO DOS PRODUTOS NO CARRINHO
+type CartProducts = {
+	cartProducts: CartProductType[];
+	setCartProducts: (cartProducts: CartProductType[]) => void;
+};
+
+export const useCartProducts = create<CartProducts>((set) => ({
+	cartProducts: [] as CartProductType[],
+	setCartProducts(cartProducts: CartProductType[]): void {
+		set(() => ({ cartProducts }));
 	},
 }));
 

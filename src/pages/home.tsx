@@ -9,12 +9,13 @@ import LinearProgress from "@mui/material/CircularProgress";
 import { Box } from "@mui/material";
 //IMPORTE DE TIPOS
 import { CartProductType } from "../types/CartProductType";
-import { useProducts } from "../contexts";
+import { useCartProducts, useProducts } from "../contexts";
 import Product from "../components/Product";
 
 const Home = () => {
 	//ESTADOS GLOBAIS
 	const { products, setProducts } = useProducts();
+	// const { cartProducts, setCartProducts } = useCartProducts();
 	//ESTADOS LOCAIS
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
@@ -24,9 +25,9 @@ const Home = () => {
 	const getTotalProducts = (product: CartProductType[]) => {
 		return product.reduce((prev: number, product) => prev + product.amount, 0);
 	};
-	
+
 	const handleAddCart = (productAtual: CartProductType) => {
-		setCartProducts((prev) => {
+		setCartProducts(( prev ) => {
 			//Checando se o produto está no carrinho
 			const isProductInCart = prev.find(
 				(product) => product.id === productAtual.id,
@@ -43,24 +44,24 @@ const Home = () => {
 			//Se não estiver, adiciona o item
 			return [...prev, { ...productAtual, amount: 1 }];
 		});
-	};	
+	};
 
 	const handleDeleteCart = (id: number) => {
-			setCartProducts((prev) =>
-				prev.reduce((acc, product) => {
-					//Checar se estamos no item que estamos interagindo
-					if (product.id === id) {
-						//Se a quantidade for igual aigual a 1, remove o item
-						if (product.amount === 1) return acc;
-						//Se for maior que 1, diminui a quantidade
-						return [...acc, { ...product, amount: product.amount - 1 }];
-						//Se não, retorna o item
-					} else {
-						return [...acc, product];
-					}
-				}, [] as CartProductType[]),
-			);
-		};
+		setCartProducts((prev) =>
+			prev.reduce((acc, product) => {
+				//Checar se estamos no item que estamos interagindo
+				if (product.id === id) {
+					//Se a quantidade for igual aigual a 1, remove o item
+					if (product.amount === 1) return acc;
+					//Se for maior que 1, diminui a quantidade
+					return [...acc, { ...product, amount: product.amount - 1 }];
+					//Se não, retorna o item
+				} else {
+					return [...acc, product];
+				}
+			}, [] as CartProductType[]),
+		);
+	};
 
 	useEffect(() => {
 		setProducts();
