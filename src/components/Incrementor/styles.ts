@@ -7,7 +7,11 @@ type IconWrapperProps = {
 export const Wrapper = styled.div`
   padding: 0.4rem 0.8rem;
   display: flex;
+  direction: row;
+  justify-content: space-around;
   align-items: center;
+  min-width: 100px;
+  max-height: 32px;
   ${({ theme }) => css`
   border: 1px solid ${theme.colors.secondary};
   border-radius: ${theme.border.radius.default};

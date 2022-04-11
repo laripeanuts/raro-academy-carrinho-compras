@@ -17,7 +17,7 @@ export const Wrapper = styled.nav<Pick<CartProps, "isOpen">>`
 	top: 0;
 	right: 0;
 	z-index: 1;
-	min-width: 350px;
+	/* min-width: 300px; */
 	align-items: center;
 
 	z-index: 2;
@@ -46,7 +46,7 @@ export const CartContainer = styled.div`
   display: flex;
 	flex-direction: column;
   justify-content: center;
-	min-width: 500px;
+	/* min-width: 300px; */
   align-items: center;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.black};
@@ -62,8 +62,8 @@ export const CartHeader = styled.div`
 		color: ${({ theme }) => theme.colors.primary};
 		width: 3rem;
 		:hover {
-			color: ${theme.colors.white};
-			background: ${theme.colors.secondary};
+			color: ${theme.colors.secondary};
+
 		}
 	}
 `;

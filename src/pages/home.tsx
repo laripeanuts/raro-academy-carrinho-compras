@@ -1,7 +1,7 @@
 //IMPORTE DE UTILIDADES
 import { useEffect, useState } from "react";
 //IMPORTE DE ESTILOS
-import { Container } from "../components/Container";
+import { Container, ContainerProducts } from "../components/Container";
 //IMPORTE DE COMPONENTES
 import LinearProgress from "@mui/material/CircularProgress";
 import Header from "../components/Header";
@@ -9,7 +9,6 @@ import { Box } from "@mui/material";
 import { Cart } from "../components/Cart";
 import { Product } from "../components/Product";
 //IMPORTE DE TIPOS
-import { CartProductType } from "../types/CartProductType";
 import { useProducts } from "../contexts";
 import { useCartProducts } from "../contexts";
 
@@ -20,13 +19,8 @@ const Home = () => {
 
   //ESTADOS GLOBAIS
   const { products, setProducts } = useProducts();
-  const { cartProducts, setCartProducts } =
-    useCartProducts();
-
-  //SOMA DA QUANTIDADE DE PRODUTOS
-  const getTotalProducts = (product: CartProductType[]) => {
-    return product.reduce((prev: number, product) => prev + product.amount, 0);
-  };
+	const { cartProducts, setCartProducts } =
+		useCartProducts();
 
   useEffect(() => {
     setProducts();
@@ -36,23 +30,26 @@ const Home = () => {
   return (
     <>
       <Header setIsOpen={setIsOpen} />
-      <Container>
-        {isLoading ? (
-          <div className="loading">
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <LinearProgress disableShrink color="secondary" />
-            </Box>
-          </div>
-        ) : (
-          <div>
-            {products?.map((product) => (
-							<Product
-								key={product.id}
-								product={product}
-								cartProducts={cartProducts} />
-            ))}
-          </div>
-        )}
+			<Container>
+				<ContainerProducts>
+					{isLoading ? (
+						<div className="loading">
+							<Box sx={{ display: "flex", justifyContent: "center" }}>
+								<LinearProgress disableShrink color="secondary" />
+							</Box>
+						</div>
+					) : (
+						<div>
+							{products?.map((product) => (
+								<Product
+									key={product.id}
+									product={product}
+									cartProducts={cartProducts}
+								/>
+							))}
+						</div>
+					)}
+				</ContainerProducts>
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       </Container>
     </>
