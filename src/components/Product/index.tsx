@@ -34,7 +34,7 @@ export const Product = ({
 					/>
 					<Button
 						disableElevation
-						onClick={() => {}}
+						onClick={() => addToCart(product)}
 						variant="contained"
 						color="secondary"
 						endIcon={<ShoppingCartCheckout />}
