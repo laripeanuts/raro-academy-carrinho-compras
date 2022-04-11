@@ -19,8 +19,12 @@ const Home = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [cartProducts, setCartProducts] = useState([] as CartProductType[]);
-	//FUNÇÕES GLOBAIS
-	const getTotalProducts = () => null;
+
+	//SOMA DA QUANTIDADE DE PRODUTOS
+	const getTotalProducts = (product: CartProductType[]) => {
+		return product.reduce((prev: number, product) => prev + product.amount, 0);
+	};
+	
 	const handleAddCart = () => null;
 	const handleDeleteCart = () => null;
 
@@ -43,12 +47,14 @@ const Home = () => {
 					<div>
 						{products.map((product: CartProductType) => {
 							return (
-								<Product key={product.id}
+								<Product
+									key={product.id}
 									product={product}
 									addToCart={handleAddCart}
 									removeFromCart={handleDeleteCart}
 								/>
-						)})}
+							);
+						})}
 					</div>
 				)}
 				<Cart
