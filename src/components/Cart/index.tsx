@@ -11,6 +11,11 @@ export type MenuPaymentProps = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
+type PropsCart = {
+	cartItems: CartItemType[];
+	addToCart: (item: CartItemType) => void;
+	removeFromCart: (id: number) => void;
+};
 /**
  * Adicionar itens ao carrinho, design ao seu critério mas deve conter:
  * - Nome do produto
