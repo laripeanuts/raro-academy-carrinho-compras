@@ -83,7 +83,6 @@ export const useCartProducts = create<CartProducts>((set) => ({
             };
           }
         },
-        [] as CartProductType[],
       );
     });
   },
