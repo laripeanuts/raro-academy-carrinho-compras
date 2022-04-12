@@ -1,11 +1,6 @@
 # Laboratório Carrinho de compras
 
 ## 🎯 Objetivos
-
-<p align="left">
-
-  <img src=".github/raroshop.gif" alt="Raro Shop" width="450">
-
 ### Na home:
 - [X] Integrar a listagem de produtos com o JSON-API
 - [X] Criar a funcionalidade de incrementar e decrementar no button
@@ -18,12 +13,10 @@
 - [X] Um estado compartilhado para gerenciar toda a lógica do carrinho e refletir informações que precisar
 
 
-<!-- ## 🥳 Web page
-<p align="left">
-  <img src="./.github/tictactoe.gif" alt="start" width="250">
-</p>
+## 🥳 Web page
 
-> the app states -->
+<p align="left"> <img src=".github/raroshop.gif" alt="Raro Shop" width="450"> </p>
+> the app states
 
 ## 💻 Made with:
 [![JAVASCRIPT](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
