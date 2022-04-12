@@ -1,5 +1,10 @@
 # Laboratório Carrinho de compras
+
 ## 🎯 Objetivos
+
+<p align="left">
+
+  <img src=".github/raroshop.gif" alt="Raro Shop" width="450">
 
 ### Na home:
 - [X] Integrar a listagem de produtos com o JSON-API
