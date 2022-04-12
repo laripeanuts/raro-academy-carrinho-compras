@@ -10,7 +10,7 @@
 - [X] Listar os produtos no carrinho
 - [X] Conseguir alterar (incrementar ou decrementar) a quantidade no carrinho
 - [X] Exibir o total formatado
-- [ ] Um estado compartilhado para gerenciar toda a lógica do carrinho e refletir informações que precisar
+- [X] Um estado compartilhado para gerenciar toda a lógica do carrinho e refletir informações que precisar
 
 
 <!-- ## 🥳 Web page
