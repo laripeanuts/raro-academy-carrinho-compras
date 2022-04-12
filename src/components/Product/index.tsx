@@ -4,6 +4,8 @@ import { CartProductType } from "../../types/CartProductType";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
 import { useCartProducts } from "../../contexts";
 import { useEffect } from "react";
+import { ShoppingCartCheckout } from "@mui/icons-material";
+import Button from "@mui/material/Button";
 
 export type ProductProps = {
 	product: CartProductType;
@@ -41,20 +43,15 @@ export const Product = ({
         </Column>
 
         <WrapperIncrementor>
-          <Incrementor
-            onClickPlus={
-              amountProduct <= product.quantity
-                ? () => handleAddCart(product)
-                : () => alertPop("Infelizmente atingiu o limite de estoque")
-            }
-            onClickMinus={() => handleDeleteCart(product)}
-            amount={amountProduct}
-          />
-          {/* {cartAmount > 0 ? (
+          {amountProduct > 0 ? (
             <Incrementor
-              onClickPlus={() => handleAddCart(product)}
+              onClickPlus={
+                amountProduct <= product.quantity
+                  ? () => handleAddCart(product)
+                  : () => alertPop("Infelizmente atingiu o limite de estoque")
+              }
               onClickMinus={() => handleDeleteCart(product)}
-              amount={cartAmount}
+              amount={amountProduct}
             />
           ) : (
             <Button
@@ -66,7 +63,7 @@ export const Product = ({
             >
               COMPRAR
             </Button>
-          )} */}
+          )}
         </WrapperIncrementor>
       </Info>
     </Wrapper>

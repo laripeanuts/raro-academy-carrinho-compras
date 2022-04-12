@@ -40,14 +40,14 @@ export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
   return (
     <Wrapper className="modal" isOpen={isOpen}>
       <Header>
+      </Header>
+      <CartContainer>
         <CartHeader>
           <Typography level={5} size="large" fontWeight={600}>
             Produtos no carrinho
           </Typography>
           <CloseOutline onClick={() => setIsOpen(false)} />
         </CartHeader>
-      </Header>
-      <CartContainer>
         {cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
         {cartProducts?.map((product) => (
           <Product key={product.id} product={product} />
