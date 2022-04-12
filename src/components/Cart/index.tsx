@@ -1,14 +1,16 @@
 import { Dispatch, SetStateAction } from "react";
 import { CloseOutline } from "@styled-icons/evaicons-outline";
-
 import Button from "../Button";
 import Typography from "../Typography";
+import { Wrapper, Subtotal, Header, CartContainer, CartHeader } from "./styles";
+import { CartProductType } from "../../types/CartProductType";
+import { formatPriceReal } from "../../helpers/formatPriceReal";
+import { useCartProducts } from "../../contexts";
+import { Product } from "../Product";
 
-import { Wrapper, Subtotal, Header } from "./styles";
-
-export type MenuPaymentProps = {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+export type CartProps = {
+	isOpen: boolean;
+	setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 /**
@@ -19,24 +21,50 @@ export type MenuPaymentProps = {
  * - Incrementador
  */
 
-const MenuPayment = ({ isOpen, setIsOpen }: MenuPaymentProps) => (
-  <Wrapper isOpen={isOpen}>
-    <Header>
-      <Typography level={5} size="large" fontWeight={600}>
-        Produtos no carrinho
-      </Typography>
-      <CloseOutline onClick={() => setIsOpen(false)} />
-    </Header>
+export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
+	const { cartProducts, emptyCard } = useCartProducts();
+	
+  const calculateProducts = (items: CartProductType[]) => {
+    return items.reduce(
+      (acc: number, item) => acc + item.amount * item.price,
+      0,
+    );
+  };
 
-    <Subtotal>
-      <Typography level={5} size="large" fontWeight={600}>
-        Total
-      </Typography>
-      <Typography>1,600.50</Typography>
-    </Subtotal>
+	const finished = () => {
+		emptyCard();
+		setIsOpen(false);
+		alert("Compra finalizada com sucesso!");
+	}
 
-    <Button fullWidth>Finalizar compra</Button>
-  </Wrapper>
-);
+  return (
+    <Wrapper className="modal" isOpen={isOpen}>
+      <Header>
+      </Header>
+      <CartContainer>
+        <CartHeader>
+          <Typography level={5} size="large" fontWeight={600}>
+            Produtos no carrinho
+          </Typography>
+          <CloseOutline onClick={() => setIsOpen(false)} />
+        </CartHeader>
+        {cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
+        {cartProducts?.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
+      </CartContainer>
+      <Subtotal>
+        <Typography level={5} size="large" fontWeight={600}>
+          Total
+        </Typography>
+        <Typography>
+          {formatPriceReal(calculateProducts(cartProducts))}
+        </Typography>
+      </Subtotal>
 
-export default MenuPayment;
+      <Button onClick={finished} fullWidth>
+        Finalizar compra
+      </Button>
+    </Wrapper>
+  );
+};

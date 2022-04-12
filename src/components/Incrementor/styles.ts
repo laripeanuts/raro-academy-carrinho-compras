@@ -7,23 +7,30 @@ type IconWrapperProps = {
 export const Wrapper = styled.div`
   padding: 0.4rem 0.8rem;
   display: flex;
+  direction: row;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
+  min-width: 100px;
+  max-height: 32px;
   ${({ theme }) => css`
-    border: 1px solid ${theme.colors.secondary};
-    border-radius: ${theme.border.radius.default};
+  border: 1px solid ${theme.colors.secondary};
+  border-radius: ${theme.border.radius.default};
   `}
 `;
 
 export const IconWrapper = styled.button<IconWrapperProps>`
-  ${({ theme, disabled }) => css`
-    color: ${!disabled ? theme.colors.secondary : theme.colors.lightPink};
-    width: 1.6rem;
-    height: 1.6rem;
-    cursor: ${!disabled ? "pointer" : "not-allowed"};
-    border: none;
-    background-color: transparent;
-  `}
+	${({ theme, disabled }) => css`
+		color: ${!disabled ? theme.colors.primary : theme.colors.lightPink};
+		width: 1.6rem;
+		height: 1.6rem;
+		cursor: ${!disabled ? "pointer" : "not-allowed"};
+		border: none;
+    border-radius: 50%;
+		:hover {
+      color: ${disabled ? theme.colors.white : theme.colors.secondary};
+      background-color: ${theme.colors.lightGray};
+		}
+	`}
 `;
 
 export const Quantity = styled.p`

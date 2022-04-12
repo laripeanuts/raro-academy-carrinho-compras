@@ -15,6 +15,9 @@ export const Wrapper = styled.button<Omit<ButtonProps, "children">>`
     font-weight: ${theme.font.weight.bold};
     background-color: ${theme.colors.primary};
     line-height: 1.9rem;
+    :hover {
+      background-color: ${theme.colors.secondary};
+    }
 
     ${fullWidth &&
     css`

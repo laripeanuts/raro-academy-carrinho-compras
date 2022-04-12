@@ -1,28 +1,71 @@
 import Incrementor from "../Incrementor";
 import { Wrapper, Info, Column, Text, WrapperIncrementor } from "./styles";
+import { CartProductType } from "../../types/CartProductType";
+import { formatPriceReal } from "../../helpers/formatPriceReal";
+import { useCartProducts } from "../../contexts";
+import { useEffect } from "react";
+import { ShoppingCartCheckout } from "@mui/icons-material";
+import Button from "@mui/material/Button";
 
 export type ProductProps = {
-  id: number;
-  name: string;
-  price: number;
-  picture: string;
+	product: CartProductType;
 };
 
-const Product = ({ id, name, price, picture }: ProductProps) => (
-  <Wrapper>
-    <img src={picture} alt={`Imagem de referência ${name}`} />
+export const Product = ({
+	product,
+}: ProductProps) => {
+	const { cartProducts, handleAddCart, handleDeleteCart } = useCartProducts();
+  
+  const getAmountProduct = (cartProducts: CartProductType[]) => {
+    let amount = 0;
+    cartProducts.forEach((item) => {
+      if (item.id === product.id) {
+        amount = item.amount;
+      }
+    });
+    return amount;
+  };
+  
+  const amountProduct = getAmountProduct(cartProducts)
+  
+  const alertPop = (message: string) => alert(message)
+  
+  useEffect(() => {}, [cartProducts]);
+  
+  return (
+    <Wrapper>
+      <img src={product.picture} alt={`Imagem de referência ${product.name}`} />
 
-    <Info>
-      <Column>
-        <Text>{name}</Text>
-        <Text>{price}</Text>
-      </Column>
+      <Info>
+        <Column>
+          <Text>{product.name}</Text>
+          <Text>{formatPriceReal(product.price)}</Text>
+        </Column>
 
-      <WrapperIncrementor>
-        <Incrementor id={id} quantity={1} />
-      </WrapperIncrementor>
-    </Info>
-  </Wrapper>
-);
-
-export default Product;
+        <WrapperIncrementor>
+          {amountProduct > 0 ? (
+            <Incrementor
+              onClickPlus={
+                amountProduct <= product.quantity
+                  ? () => handleAddCart(product)
+                  : () => alertPop("Infelizmente atingiu o limite de estoque")
+              }
+              onClickMinus={() => handleDeleteCart(product)}
+              amount={amountProduct}
+            />
+          ) : (
+            <Button
+              disableElevation
+              onClick={() => handleAddCart(product)}
+              variant="contained"
+              color="secondary"
+              endIcon={<ShoppingCartCheckout />}
+            >
+              COMPRAR
+            </Button>
+          )}
+        </WrapperIncrementor>
+      </Info>
+    </Wrapper>
+  );
+};

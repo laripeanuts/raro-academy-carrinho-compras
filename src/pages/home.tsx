@@ -1,25 +1,51 @@
-import { useState } from "react";
-import Cart from "../components/Cart";
-import { Container } from "../components/Container";
+//IMPORTE DE UTILIDADES
+import { useEffect, useState } from "react";
+//IMPORTE DE ESTILOS
+import { Container, ContainerProducts } from "../components/Container";
+//IMPORTE DE COMPONENTES
+import LinearProgress from "@mui/material/CircularProgress";
 import Header from "../components/Header";
-import Product, { ProductProps } from "../components/Product";
-
-const data: ProductProps = {
-  id: 1,
-  name: "Product 1",
-  picture:
-    "https://somos.lojaiplace.com.br/wp-content/uploads/2021/04/apple_iphone-12-spring21_purple_04202021.jpg",
-  price: 20.50,
-};
+import { Box } from "@mui/material";
+import { Cart } from "../components/Cart";
+import { Product } from "../components/Product";
+//IMPORTE DE TIPOS
+import { useProducts } from "../contexts";
 
 const Home = () => {
+  //ESTADOS LOCAIS
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  //ESTADOS GLOBAIS
+  const { products, setProducts } = useProducts();
+
+  useEffect(() => {
+    setProducts();
+    setIsLoading(false);
+  }, []);
 
   return (
     <>
       <Header setIsOpen={setIsOpen} />
       <Container>
-        <Product {...data} />
+        <ContainerProducts>
+          {isLoading ? (
+            <div className="loading">
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <LinearProgress disableShrink color="secondary" />
+              </Box>
+            </div>
+          ) : (
+            <div>
+              {products?.map((product) => (
+                <Product
+                  key={product.id}
+                  product={product}
+                />
+              ))}
+            </div>
+          )}
+        </ContainerProducts>
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       </Container>
     </>

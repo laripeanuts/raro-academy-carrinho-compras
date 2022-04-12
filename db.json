@@ -1,11 +1,74 @@
 {
-  "products": [
-    {
-      "id": 1,
-      "name": "Product 1",
-      "picture": "https://somos.lojaiplace.com.br/wp-content/uploads/2021/04/apple_iphone-12-spring21_purple_04202021.jpg",
-      "quantity": 2,
-      "price": 299.50
-    }
-  ]
+	"products": [
+		{
+			"id": 0,
+			"name": "Apple iPhone 13 Pro (128GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v8584867240712568214/products/220960.00-apple-iphone13-pro-128gb-verde-alpino-mne23bz-a.jpeg&height=500&width=500&quality=0.9",
+			"quantity": 2,
+			"price": 7590.0
+		},
+		{
+			"id": 1,
+			"name": "Apple iPhone 12 (64GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v2430498960357425061/products/216224.00-iphone-12-apple-verde-64gb-mgj93br-a.jpg&height=1000&width=1000&quality=0.9",
+			"quantity": 5,
+			"price": 4799.0
+		},
+		{
+			"id": 2,
+			"name": "iPhone 11 Apple (64GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v6536520727151081682/products/213226E.00-usado-iphone-11-apple-branco-64gb-seminovo.jpg&height=500&width=500&quality=0.9",
+			"quantity": 3,
+			"price": 2999.9
+		},
+		{
+			"id": 3,
+			"name": "iPhone XR Apple (128GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v3886146572187713516/products/216553E.00-usado-iphone-xr-preto-128gb.png&height=500&width=500&quality=0.9",
+			"quantity": 1,
+			"price": 2545.8
+		},
+		{
+			"id": 4,
+			"name": "Apple iPad Pro, M1 (Wi-Fi, 512GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v788416348760066964/products/218373.00-ipad-pro-apple-m1-tela11-512gb-cinzaespacial-wifi-mhqw3bz-a.jpg&height=500&width=500&quality=0.9",
+			"quantity": 3,
+			"price": 12999.9
+		},
+		{
+			"id": 5,
+			"name": "Apple TV HD (32GB)",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v1058251349982693602/products/218502.00-apple-tv-hd-32gb-siriremote-mhy93bz-a.jpg&height=500&width=500&quality=0.9",
+			"quantity": 4,
+			"price": 1799.9
+		},
+		{
+			"id": 6,
+			"name": "Apple MacBook Air 13,3",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v8660817288287946624/products/216679.00-macbook-air-2020-mgna3bz-a.jpg&height=500&width=500&quality=0.9",
+			"quantity": 7,
+			"price": 2999.9
+		},
+		{
+			"id": 7,
+			"name": "Apple Watch Series 7",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v6586623394037630245/products/219656.00-apple-watch-series-7-gps-cellular-45mm-meia-noite-mkjp3be-a.jpg&height=500&width=500&quality=0.9",
+			"quantity": 7,
+			"price": 4690.0
+		},
+		{
+			"id": 8,
+			"name": "Carregador de Parede Apple 20W",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v3006484973456491110/products/216338.02-carregador-parede-apple-mhjg3bz-a.jpg",
+			"quantity": 5,
+			"price": 224.5
+		},
+		{
+			"id": 9,
+			"name": "Apple AirPods",
+			"picture": "https://www.iplace.com.br/ccstore/v1/images/?source=/file/v1090249401271032212/products/219789.00-apple-airpods-3geracao-estojo-recarga-magsafe-mme73be.jpg&height=500&width=500&quality=0.9",
+			"quantity": 10,
+			"price": 1154.5
+		}
+	]
 }

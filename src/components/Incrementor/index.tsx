@@ -4,20 +4,25 @@ import { Subtract as SubtractIcon } from "@styled-icons/remix-fill/Subtract";
 import { Wrapper, IconWrapper, Quantity } from "./styles";
 
 type IncrementorProps = {
-  id: number;
-  quantity: number;
-};
+	amount: number;
+	onClickPlus: () => void;
+	onClickMinus: () => void;
+}; 
 
-const Incrementor = ({ id, quantity }: IncrementorProps) => (
+const Incrementor = ({
+  amount,
+  onClickMinus,
+  onClickPlus,
+}: IncrementorProps) => (
   <Wrapper>
     <IconWrapper>
-      <SubtractIcon aria-label="Subtract item" />
+      <SubtractIcon onClick={onClickMinus} aria-label="Subtract item" />
     </IconWrapper>
 
-    <Quantity>{quantity}</Quantity>
+    <Quantity>{amount}</Quantity>
 
     <IconWrapper>
-      <PlusIcon aria-label="Add item" />
+      <PlusIcon onClick={onClickPlus} aria-label="Add item" />
     </IconWrapper>
   </Wrapper>
 );
