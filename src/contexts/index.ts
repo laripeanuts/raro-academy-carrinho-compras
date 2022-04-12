@@ -63,15 +63,13 @@ export const useCartProducts = create<CartProducts>((set) => ({
   },
 
   handleDeleteCart: (productAtual: CartProductType) => {
-    set(({ cartProducts }) => {
+    set(({ cartProducts }: any) => {
       return cartProducts.reduce(
-        (acc: any, product: any) => {
+        (acc: CartProductType[], product: CartProductType) => {
           //Checar se estamos no item que estamos interagindo
           if (product.id === productAtual.id) {
-            //Se a quantidade for igual a 1, remove o item
-            if (product.amount === 1) return acc;
+            if (product.amount === 1) return { cartProducts: [acc] };
 
-            //Se for maior que 1, diminui a quantidade
             return {
               cartProducts: [
                 ...acc,
