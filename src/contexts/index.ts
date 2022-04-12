@@ -63,28 +63,17 @@ export const useCartProducts = create<CartProducts>((set) => ({
   },
 
   handleDeleteCart: (productAtual: CartProductType) => {
-    set(({ cartProducts }: any) => {
-      return cartProducts.reduce(
-        (acc: CartProductType[], product: CartProductType) => {
-          //Checar se estamos no item que estamos interagindo
-          if (product.id === productAtual.id) {
-            if (product.amount === 1) return { cartProducts: acc };
-
-            return {
-              cartProducts: [
-                ...acc,
-                { ...product, amount: product.amount - 1 },
-              ],
-            };
-            //Se não, retorna o item
-          } else {
-            return {
-              cartProducts: [...acc, product],
-            };
-          }
-        },
-        [] as CartProductType[],
-      );
+    set(({ cartProducts }: any) => { 
+      const resultante = cartProducts.map((product: CartProductType) => {
+        if (product.id === productAtual.id) {
+          return { ...product, amount: product.amount - 1 }
+        } else {
+          return { ...product }
+        }
+      }).filter((product: CartProductType) => product.amount > 0);
+      return {
+        cartProducts: resultante
+      };
     });
   },
 
