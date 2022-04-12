@@ -68,7 +68,7 @@ export const useCartProducts = create<CartProducts>((set) => ({
         (acc: CartProductType[], product: CartProductType) => {
           //Checar se estamos no item que estamos interagindo
           if (product.id === productAtual.id) {
-            if (product.amount === 1) return { cartProducts: [acc] };
+            if (product.amount === 1) return { cartProducts: acc };
 
             return {
               cartProducts: [

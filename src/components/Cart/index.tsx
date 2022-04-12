@@ -7,6 +7,7 @@ import { CartProductType } from "../../types/CartProductType";
 import { CartProduct } from "../CartProduct";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
 import { useCartProducts } from "../../contexts";
+import { Product } from "../Product";
 
 export type CartProps = {
 	isOpen: boolean;
@@ -50,7 +51,7 @@ export const Cart = ({ isOpen, setIsOpen }: CartProps) => {
       <CartContainer>
         {cartProducts.length === 0 ? <h2>Carrinho Vazio...</h2> : null}
         {cartProducts?.map((product) => (
-          <CartProduct key={product.id} product={product} />
+          <Product key={product.id} product={product} />
         ))}
       </CartContainer>
       <Subtotal>
