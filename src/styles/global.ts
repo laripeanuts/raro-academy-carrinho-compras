@@ -14,10 +14,13 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   html {
+    min-height: 100%;
+    height:100%;
     background: ${theme.colors.lightGray};
     font-size: 62.5%;
   }
   body {
+    height:100%;
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   html, body, #root {

@@ -4,35 +4,29 @@ import { theme } from "../../styles/theme";
 import { CartProps } from "../Cart";
 
 export const Wrapper = styled.nav<Pick<CartProps, "isOpen">>`
-	/* position: absolute;
-	padding: 3rem;
+  padding: 3rem;
+  display: flex;
+  position: absolute;
+	min-height: 220%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  /* min-width: 300px; */
+  align-items: center;
 
-	top: 80%;
-	left: 50%;
-	transform: translate(-50%, -50%); */
-	padding: 3rem;
-	border-radius: 0 0 30px 30px;
-	display: flex;
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 1;
-	/* min-width: 300px; */
-	align-items: center;
+  z-index: 2;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
+  background: red;
 
-	z-index: 2;
-	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  h4 {
+    margin-bottom: 3.2rem;
+  }
 
-	background-color: rgba(0, 0, 0, 0.25);
-
-	h4 {
-		margin-bottom: 3.2rem;
-	}
-
-	${({ isOpen, theme }) => css`
-		display: ${isOpen ? "block" : "none"};
-		background-color: ${theme.colors.lightGray};
-	`}
+  ${({ isOpen, theme }) => css`
+    display: ${isOpen ? "block" : "none"};
+    background-color: ${theme.colors.lightGray};
+  `}
 `;
 
 export const Subtotal = styled.div`
@@ -46,7 +40,9 @@ export const CartContainer = styled.div`
   display: flex;
 	flex-direction: column;
   justify-content: center;
-	/* min-width: 300px; */
+	min-width: 550px;
+	max-width: 550px;
+	min-height: 100%;
   align-items: center;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.black};
@@ -55,6 +51,7 @@ export const CartHeader = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	margin-bottom: 30px;
 
 	> svg {
     border-radius: 50%;

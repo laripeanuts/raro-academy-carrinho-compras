@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 export const Wrapper = styled.div`
-padding: 15px;
+  padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -11,6 +11,9 @@ padding: 15px;
   align-items: center;
   margin-bottom: 3.2rem;
   ${({ theme }) => css`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: ${theme.colors.white};
     border: 1px solid ${theme.colors.lightPink};
     border-radius: ${theme.border.radius.other};
@@ -29,7 +32,8 @@ export const Info = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin: 3.8rem 18rem 3.7rem 4rem;
+  padding: 20px;
+  /* margin: 3.8rem 18rem 3.7rem 4rem; */
 
   ${media.lessThan("medium")`
     flex-direction: column;
@@ -38,20 +42,24 @@ export const Info = styled.div`
 `;
 
 export const Column = styled.div`
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
+gap: 10px;
 
-  ${media.lessThan("medium")`
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    margin-bottom: 0.8rem;
-  `}
+${media.lessThan("medium")`
+flex-direction: row;
+width: 100%;
+justify-content: space-between;
+margin-bottom: 0.8rem;
+`}
 `;
 
 export const Text = styled.p`
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 
   ${({ theme }) => css`
     font-family: ${theme.font.family.roboto};
@@ -62,6 +70,7 @@ export const Text = styled.p`
     
     ${media.lessThan("medium")`
     font-size: ${theme.font.sizes.xsmall};
+    gap: 10px;
     margin-top: 0;
     `}
     `}
@@ -69,7 +78,7 @@ export const Text = styled.p`
   svg {
     width: 1.6rem;
     height: 1.6rem;
-    margin-right: 0.4rem;
+    /* margin-right: 0.4rem; */
     ${({ theme }) => css`
       color: ${theme.colors.primary};
     `}
