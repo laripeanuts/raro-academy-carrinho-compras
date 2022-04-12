@@ -10,8 +10,6 @@ import { Cart } from "../components/Cart";
 import { Product } from "../components/Product";
 //IMPORTE DE TIPOS
 import { useProducts } from "../contexts";
-import { useCartProducts } from "../contexts";
-import { CartProduct } from "../components/CartProduct";
 
 const Home = () => {
   //ESTADOS LOCAIS
@@ -20,8 +18,6 @@ const Home = () => {
 
   //ESTADOS GLOBAIS
   const { products, setProducts } = useProducts();
-	const { cartProducts, setCartProducts } =
-		useCartProducts();
 
   useEffect(() => {
     setProducts();

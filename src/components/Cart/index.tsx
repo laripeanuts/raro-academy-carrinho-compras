@@ -4,7 +4,6 @@ import Button from "../Button";
 import Typography from "../Typography";
 import { Wrapper, Subtotal, Header, CartContainer, CartHeader } from "./styles";
 import { CartProductType } from "../../types/CartProductType";
-import { CartProduct } from "../CartProduct";
 import { formatPriceReal } from "../../helpers/formatPriceReal";
 import { useCartProducts } from "../../contexts";
 import { Product } from "../Product";
